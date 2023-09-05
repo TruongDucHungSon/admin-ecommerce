@@ -6,7 +6,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Category from "./pages/categorys/Category";
 import Products from "./pages/products/Products";
-import CreateCategory from "./pages/categorys/create-category/createCategory";
+import CreateCategory from "./pages/categorys/create-category/CreateCategory";
 import UpdateCategory from "./pages/categorys/update-category/updateCategory";
 import CreateProduct from "./pages/products/create-product/createProduct";
 import CreateUser from "./pages/users/create-user/createUser";
