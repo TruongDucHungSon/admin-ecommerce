@@ -7,11 +7,11 @@ import Register from "./pages/register/Register";
 import Category from "./pages/categorys/Category";
 import Products from "./pages/products/Products";
 import UpdateCategory from "./pages/categorys/update-category/updateCategory";
-import CreateProduct from "./pages/products/create-product/createProduct";
+import CreateProduct from "./pages/products/create-product/CreateProduct";
 import CreateUser from "./pages/users/create-user/createUser";
 import User from "./pages/users/User";
 import UpdateUser from "./pages/users/update-user/updateUser";
-import UpdateProduct from "./pages/products/update-product/updateProduct";
+import UpdateProduct from "./pages/products/update-product/UpdateProduct";
 import CreateCategory from "./pages/categorys/create-category/CreateCategory";
 
 function App() {
