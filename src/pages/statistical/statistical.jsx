@@ -41,6 +41,44 @@ function Statistical () {
         { field: "stock", headerName: "Stock", flex: 1 },
         { field: "sold", headerName: "Sold", flex: 1 },
     ];
+ const rows = statistical.soldProductsStatisticsById.length > 0 && Array.isArray(statistical.soldProductsStatisticsById[0]?.productInfo)
+    ? statistical.soldProductsStatisticsById.map((statis) => ({
+        id: statis?._id,
+        name: statis?.productInfo[0].name,
+        description: statis?.productInfo[0].description,
+        price: statis?.productInfo[0].price,
+        newPrice: statis?.productInfo[0].newprice,
+        category: statis?.productInfo[0].category,
+        images: statis?.productInfo[0].images,
+        stock: statis?.productInfo[0].stock,
+        sold: statis?.totalQuantitySold,
+      }))
+    : [];
+
+    if (loading) {
+        return <Loader />;
+    }
+
+    return (
+        <div className="statis__wrapper">
+            <div className="statis__overview">
+                <div className="statis__revenue">
+                    <span className="statis__title">Tổng doanh thu của cửa hàng</span>
+                    <span className="statis__content">{statistical.revenueStatistic.totalRevenue}$</span>
+                </div>
+                <div className="statis__product">
+                    <span className="statis__title">Tổng số lượng sản phẩm đã bán</span>
+                    <span className="statis__content">{statistical.soldProductsStatistic.totalSoldProducts}</span>
+                </div>
+            </div>
+            <div className="statis__productdes">
+                <h1 className="title__product">Chi tiết số lượng đã bán của từng sản phẩm: </h1>
+                <div style={{ marginTop: "20px", width: "100%"}}>
+                    <DataGrid rows={rows} columns={columns} pageSize={5} />
+                </div>
+            </div>
+        </div>
+    )
   }
 
 export default Statistical;
