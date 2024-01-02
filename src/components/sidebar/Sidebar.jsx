@@ -54,6 +54,14 @@ const Sidebar = () => {
         { label: "Update Category", to: "/category/update" },
       ],
     },
+    {
+      title: "Statistical",
+      key: "statistical",
+      icon: <BarChart />,
+      items: [
+        { label: "Statistical store", to: "/statistical" },
+      ],
+    },
   ];
 
   return (
