@@ -1,0 +1,66 @@
+.statis__wrapper {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.statis__overview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statis__revenue {
+    width: 48%;
+    /* background: linear-gradient(45deg, #00ffff, #93278f); */
+    background-color: #00ffff;
+}
+
+.statis__product {
+    width: 48%;
+    /* background: linear-gradient(45deg, #ff0a6c, #4a3cdb); */
+    background-color: #00ffff;
+}
+
+.statis__revenue,
+.statis__product {
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 200px;
+    text-align: center;
+}
+
+.statis__title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.statis__content {
+    display: block;
+    margin-top: 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.statis__productdes {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #222;
+    margin-top: 20px;
+}
+
+/* css for loader */
+.wrapper__loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
