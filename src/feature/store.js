@@ -11,6 +11,7 @@ const store = configureStore({
     product: productReducer,
     auth: authReducer,
     user: userReducer,
+    statistical: statisticalReduce,
   },
 });
 
