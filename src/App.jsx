@@ -13,6 +13,7 @@ import User from "./pages/users/User";
 import UpdateUser from "./pages/users/update-user/updateUser";
 import UpdateProduct from "./pages/products/update-product/UpdateProduct";
 import CreateCategory from "./pages/categorys/create-category/CreateCategory";
+import Statistical from "./pages/statistical/statistical";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/user/create" element={<CreateUser />} />
         <Route path="/user/update/:id" element={<UpdateUser />} />
         <Route path="/product/update/:id" element={<UpdateProduct />} />
+        <Route path="/statistical" element={<Statistical />} />
       </Routes>
     </main>
   );
