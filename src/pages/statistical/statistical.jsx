@@ -41,7 +41,8 @@ function Statistical () {
         { field: "stock", headerName: "Stock", flex: 1 },
         { field: "sold", headerName: "Sold", flex: 1 },
     ];
- const rows = statistical.soldProductsStatisticsById.length > 0 && Array.isArray(statistical.soldProductsStatisticsById[0]?.productInfo)
+    
+    const rows = statistical.soldProductsStatisticsById.length > 0 && Array.isArray(statistical.soldProductsStatisticsById[0]?.productInfo)
     ? statistical.soldProductsStatisticsById.map((statis) => ({
         id: statis?._id,
         name: statis?.productInfo[0].name,
@@ -79,6 +80,6 @@ function Statistical () {
             </div>
         </div>
     )
-  }
+}
 
 export default Statistical;

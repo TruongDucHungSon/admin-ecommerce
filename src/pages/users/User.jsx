@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Grid from "@mui/material/Grid";
+import Loader from "../../components/Loader/Loader";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -28,8 +29,8 @@ const User = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
-  }
+        return <Loader />;
+    }
 
   const columns = [
     { field: "username", headerName: "Name", flex: 1 },
