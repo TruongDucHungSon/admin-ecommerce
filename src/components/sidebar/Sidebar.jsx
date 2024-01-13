@@ -7,6 +7,8 @@ import {
   Person as PersonIcon,
   Category as CategoryIcon,
   ShoppingBasket as ShoppingBasketIcon,
+  BarChart,
+  RequestQuote,
 } from "@mui/icons-material";
 
 const Sidebar = () => {
@@ -14,6 +16,7 @@ const Sidebar = () => {
     user: false,
     product: false,
     category: false,
+    statistical: false,
   });
 
   const handleToggle = (option) => {
@@ -60,6 +63,14 @@ const Sidebar = () => {
       icon: <BarChart />,
       items: [
         { label: "Statistical store", to: "/statistical" },
+      ],
+    },
+    {
+      title: "Order",
+      key: "order",
+      icon: <RequestQuote />,
+      items: [
+        { label: "List order", to: "/order?status=All" },
       ],
     },
   ];

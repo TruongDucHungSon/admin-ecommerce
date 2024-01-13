@@ -14,26 +14,32 @@ import UpdateUser from "./pages/users/update-user/updateUser";
 import UpdateProduct from "./pages/products/update-product/UpdateProduct";
 import CreateCategory from "./pages/categorys/create-category/CreateCategory";
 import Statistical from "./pages/statistical/statistical";
+import Order from "./pages/order/order";
+import OrderDetail from "./pages/orderDetail/OrderDetail";
 
 function App() {
   return (
     <main className="flex items-start w-full max-w-[1440px] gap-10">
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/create-category" element={<CreateCategory />} />
-        <Route path="/update-category/:id" element={<UpdateCategory />} />
-        <Route path="/product" element={<Products />} />
-        <Route path="/product/create" element={<CreateProduct />} />
-        <Route path="/user/create" element={<CreateUser />} />
-        <Route path="/user/update/:id" element={<UpdateUser />} />
-        <Route path="/product/update/:id" element={<UpdateProduct />} />
-        <Route path="/statistical" element={<Statistical />} />
-      </Routes>
+      <div className="wrapper__content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/create-category" element={<CreateCategory />} />
+          <Route path="/update-category/:id" element={<UpdateCategory />} />
+          <Route path="/product" element={<Products />} />
+          <Route path="/product/create" element={<CreateProduct />} />
+          <Route path="/user/create" element={<CreateUser />} />
+          <Route path="/user/update/:id" element={<UpdateUser />} />
+          <Route path="/product/update/:id" element={<UpdateProduct />} />
+          <Route path="/statistical" element={<Statistical />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/order/:id" element={<OrderDetail />} />
+        </Routes>
+      </div>
     </main>
   );
 }
