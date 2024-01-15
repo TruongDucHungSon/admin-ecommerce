@@ -330,7 +330,8 @@
     font-weight: bold;
 }
 
-.productItem__des-quantity {
+.productItem__des-quantity,
+.productItem__des-size {
     font-size: 1rem;
     color: #666;
     font-weight: 500;
