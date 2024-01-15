@@ -27,7 +27,7 @@ export const updateproduct = createAsyncThunk(
   "product/updateproduct",
   async (product) => {
     const response = await axios.put(
-      `https://ecommerce-api-mcqr.onrender.com/${product._id}`,
+      `https://ecommerce-api-mcqr.onrender.com/product/${product._id}`,
       product
     );
     return response.data;

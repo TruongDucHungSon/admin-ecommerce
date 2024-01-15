@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { revenueStatistics, selectStatistical, soldProductsStatistics, soldProductsStatisticsById } from "../../feature/statistical/sliceStatistical";
+import { revenueStatistics, selectStatistical, soldProductsByMonthAndYear, soldProductsStatistics, soldProductsStatisticsById } from "../../feature/statistical/sliceStatistical";
 import Loader from "../../components/Loader/Loader";
 
 function Statistical () {
@@ -13,6 +13,7 @@ function Statistical () {
       dispatch(revenueStatistics());
       dispatch(soldProductsStatistics());
       dispatch(soldProductsStatisticsById());
+      dispatch(soldProductsByMonthAndYear());
     }, [dispatch]);
 
     const columns = [
@@ -41,6 +42,11 @@ function Statistical () {
         { field: "stock", headerName: "Stock", flex: 1 },
         { field: "sold", headerName: "Sold", flex: 1 },
     ];
+
+    const columnsTwo = [
+        { field: "month", headerName: "Month", flex: 1},
+        { field: "total", headerName: "Total", flex: 1 },
+    ];
     
     const rows = statistical.soldProductsStatisticsById.length > 0 && Array.isArray(statistical.soldProductsStatisticsById[0]?.productInfo)
     ? statistical.soldProductsStatisticsById.map((statis) => ({
@@ -53,6 +59,14 @@ function Statistical () {
         images: statis?.productInfo[0].images,
         stock: statis?.productInfo[0].stock,
         sold: statis?.totalQuantitySold,
+      }))
+    : [];
+
+    const rowsTow = statistical.soldProductsByMonthAndYear.length > 0
+    ? statistical.soldProductsByMonthAndYear.map((statis, index) => ({
+        id: index,
+        month: statis.month,
+        total: statis.total + " Product"
       }))
     : [];
 
@@ -74,8 +88,14 @@ function Statistical () {
             </div>
             <div className="statis__productdes">
                 <h1 className="title__product">Chi tiết số lượng đã bán của từng sản phẩm: </h1>
-                <div style={{ marginTop: "20px", width: "100%"}}>
+                <div style={{ marginTop: "20px", width: "100%", height: "400px"}}>
                     <DataGrid rows={rows} columns={columns} pageSize={5} />
+                </div>
+            </div>
+            <div className="statis__productdes">
+                <h1 className="title__product">Thống kê số lượng sản phẩm đã bán theo tháng: </h1>
+                <div style={{ marginTop: "20px", width: "100%", height: "400px"}}>
+                    <DataGrid rows={rowsTow} columns={columnsTwo} pageSize={5} />
                 </div>
             </div>
         </div>
