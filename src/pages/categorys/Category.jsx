@@ -17,6 +17,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
+import Loader from "../../components/Loader/Loader";
 
 const Category = () => {
   const dispatch = useDispatch();
@@ -34,8 +35,8 @@ const Category = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
-  }
+        return <Loader />;
+    }
 
   return (
     <div>

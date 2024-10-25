@@ -6,7 +6,6 @@ import CreateCategory from "./pages/categorys/create-category/CreateCategory";
 import UpdateCategory from "./pages/categorys/update-category/updateCategory";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Orders from "./pages/order/Order";
 import Products from "./pages/products/Products";
 import CreateProduct from "./pages/products/create-product/CreateProduct";
 import UpdateProduct from "./pages/products/update-product/UpdateProduct";
@@ -31,8 +30,7 @@ function App() {
         <Route path="/product/create" element={<CreateProduct />} />
         <Route path="/user/create" element={<CreateUser />} />
         <Route path="/user/update/:id" element={<UpdateUser />} />
-        <Route path="/product/:id" element={<UpdateProduct />} />
-        <Route path="/order" element={<Orders />} />
+        <Route path="/product/update/:id" element={<UpdateProduct />} />
       </Routes>
     </main>
   );

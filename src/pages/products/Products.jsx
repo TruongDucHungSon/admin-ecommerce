@@ -45,10 +45,6 @@ const Product = () => {
     return <div>Loading...</div>;
   }
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-
   const columns = [
     { field: "name", headerName: "Name", flex: 1 },
     { field: "description", headerName: "Description", flex: 1 },

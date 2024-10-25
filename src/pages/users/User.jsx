@@ -29,7 +29,7 @@ const User = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   const columns = [

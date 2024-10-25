@@ -69,6 +69,8 @@ const UpdateProduct = () => {
       category,
     };
 
+    console.log(updatedProduct);
+
     dispatch(updateproduct(updatedProduct)).then(() => {
       alert("Product updated successfully!");
     });

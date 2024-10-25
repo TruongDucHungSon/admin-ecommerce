@@ -1,8 +1,10 @@
 import {
+  BarChart,
   Category as CategoryIcon,
   ChevronRight as ChevronRightIcon,
   ExpandMore as ExpandMoreIcon,
   Person as PersonIcon,
+  RequestQuote,
   ShoppingBasket as ShoppingBasketIcon,
 } from "@mui/icons-material";
 import { Collapse, List, ListItem, ListItemText } from "@mui/material";
@@ -14,6 +16,7 @@ const Sidebar = () => {
     user: false,
     product: false,
     category: false,
+    statistical: false,
   });
 
   const handleToggle = (option) => {
@@ -62,6 +65,18 @@ const Sidebar = () => {
       key: "order",
       icon: <CategoryIcon />,
       items: [{ label: "List Order", to: "/order" }],
+    },
+    {
+      title: "Statistical",
+      key: "statistical",
+      icon: <BarChart />,
+      items: [{ label: "Statistical store", to: "/statistical" }],
+    },
+    {
+      title: "Order",
+      key: "order",
+      icon: <RequestQuote />,
+      items: [{ label: "List order", to: "/order?status=All" }],
     },
   ];
 
