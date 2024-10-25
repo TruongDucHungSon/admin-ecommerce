@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { List, ListItem, ListItemText, Collapse } from "@mui/material";
 import {
-  ExpandMore as ExpandMoreIcon,
-  ChevronRight as ChevronRightIcon,
-  Person as PersonIcon,
   Category as CategoryIcon,
+  ChevronRight as ChevronRightIcon,
+  ExpandMore as ExpandMoreIcon,
+  Person as PersonIcon,
   ShoppingBasket as ShoppingBasketIcon,
 } from "@mui/icons-material";
+import { Collapse, List, ListItem, ListItemText } from "@mui/material";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [submenuStates, setSubmenuStates] = useState({
@@ -25,13 +25,18 @@ const Sidebar = () => {
 
   const submenuData = [
     {
+      title: "Home",
+      key: "home",
+      icon: <PersonIcon />,
+      items: [{ label: "Statistics", to: "/" }],
+    },
+    {
       title: "User",
       key: "user",
       icon: <PersonIcon />,
       items: [
         { label: "List", to: "/user" },
         { label: "Create User", to: "/user/create" },
-        { label: "Update User", to: "/user/update" },
       ],
     },
     {
@@ -41,7 +46,6 @@ const Sidebar = () => {
       items: [
         { label: "List", to: "/product" },
         { label: "Create Product", to: "/product/create" },
-        { label: "Update Product", to: "/product/update" },
       ],
     },
     {
@@ -51,13 +55,18 @@ const Sidebar = () => {
       items: [
         { label: "List category", to: "/category" },
         { label: "Create Category", to: "/create-category" },
-        { label: "Update Category", to: "/category/update" },
       ],
+    },
+    {
+      title: "Order",
+      key: "order",
+      icon: <CategoryIcon />,
+      items: [{ label: "List Order", to: "/order" }],
     },
   ];
 
   return (
-    <div className="h-screen p-6 text-white bg-gray-800 w-80 sidebar">
+    <div className="h-screen p-6 text-white bg-gray-800 w-[360px] sidebar">
       <h2 className="mb-6 text-xl font-bold text-center">Admin Panel</h2>
       <List component="nav">
         {submenuData.map((submenu) => (
@@ -87,7 +96,7 @@ const Sidebar = () => {
                     button
                     component={Link}
                     to={item.to}
-                    className="py-2 pl-8 list-disc rounded hover:bg-gray-700"
+                    className="py-2 px-3 pl-8 list-disc rounded hover:bg-gray-700"
                   >
                     <ListItemText primary={item.label} />
                   </ListItem>

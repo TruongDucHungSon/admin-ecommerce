@@ -1,27 +1,29 @@
-import { useForm } from "react-hook-form";
-import { TextField, Button, Container, Grid, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { useDispatch } from "react-redux"; // Removed useSelector for this case
-import { addUser } from "../../../feature/user/userSlice"; // Imported addUser from userSlice
-import { fetchUsers } from "../../../feature/user/userSlice";
+import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addUser, fetchUsers } from "../../../feature/user/userSlice";
 
 const CreateUser = () => {
   const dispatch = useDispatch();
 
+  // Fetch users when component mounts
   useEffect(() => {
     dispatch(fetchUsers());
-  }, []);
+  }, [dispatch]); // Include dispatch as a dependency
 
+  // Set up React Hook Form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // Handle form submission
   const onSubmit = (data) => {
-    console.log(data);
-    dispatch(addUser(data));
+    console.log(data); // For debugging
+    dispatch(addUser(data)); // Dispatch the action to add the user
   };
 
   return (
@@ -33,27 +35,33 @@ const CreateUser = () => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
-              label="Username"
+              label="First Name"
               fullWidth
-              {...register("username", { required: "Username is required" })}
-              error={!!errors.username}
-              helperText={errors.username?.message}
+              {...register("firstName", { required: "First name is required" })}
+              error={!!errors.firstName}
+              helperText={errors.firstName?.message}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="LastName"
+              label="Last Name"
               fullWidth
-              {...register("lastname", { required: "lastname is required" })}
-              error={!!errors.lastname}
-              helperText={errors.lastname?.message}
+              {...register("lastName", { required: "Last name is required" })}
+              error={!!errors.lastName}
+              helperText={errors.lastName?.message}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               label="Email"
               fullWidth
-              {...register("email", { required: "email is required" })}
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                  message: "Invalid email address",
+                },
+              })}
               error={!!errors.email}
               helperText={errors.email?.message}
             />
@@ -63,7 +71,7 @@ const CreateUser = () => {
               label="Password"
               fullWidth
               type="password"
-              {...register("password", { required: "password is required" })}
+              {...register("password", { required: "Password is required" })}
               error={!!errors.password}
               helperText={errors.password?.message}
             />
@@ -74,6 +82,7 @@ const CreateUser = () => {
           variant="contained"
           color="primary"
           startIcon={<AddIcon />}
+          sx={{ mt: 2 }} // Adds margin at the top of the button
         >
           Create User
         </Button>
@@ -82,4 +91,4 @@ const CreateUser = () => {
   );
 };
 
-export default CreateUser; // Export the CreateUser component
+export default CreateUser;

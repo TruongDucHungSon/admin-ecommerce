@@ -1,21 +1,22 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  deleteUser,
-  selectUsers,
-  fetchUsers,
-} from "../../feature/user/userSlice";
-import { Link } from "react-router-dom";
-import { DataGrid } from "@mui/x-data-grid";
-import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { DataGrid } from "@mui/x-data-grid";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import {
+  deleteUser,
+  fetchUsers,
+  selectUsers,
+} from "../../feature/user/userSlice";
 
 const User = () => {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
   const loading = useSelector((state) => state.user.loading);
+  console.log(users);
 
   useEffect(() => {
     dispatch(fetchUsers());

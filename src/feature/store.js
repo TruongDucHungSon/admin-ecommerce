@@ -1,8 +1,11 @@
 // src/app/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import categoryReducer from "../feature/category/sliceCategory";
-import productReducer from "../feature/product/productSlice";
-import authReducer from "../feature/product/productSlice";
+import orderReducer from "../feature/order/orderSlice";
+import {
+  default as authReducer,
+  default as productReducer,
+} from "../feature/product/productSlice";
 import userReducer from "../feature/user/userSlice";
 
 const store = configureStore({
@@ -11,6 +14,7 @@ const store = configureStore({
     product: productReducer,
     auth: authReducer,
     user: userReducer,
+    order: orderReducer,
   },
 });
 

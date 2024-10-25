@@ -1,18 +1,19 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
+import Category from "./pages/categorys/Category";
+import CreateCategory from "./pages/categorys/create-category/CreateCategory";
+import UpdateCategory from "./pages/categorys/update-category/updateCategory";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import Category from "./pages/categorys/Category";
+import Orders from "./pages/order/Order";
 import Products from "./pages/products/Products";
-import UpdateCategory from "./pages/categorys/update-category/updateCategory";
 import CreateProduct from "./pages/products/create-product/CreateProduct";
-import CreateUser from "./pages/users/create-user/createUser";
-import User from "./pages/users/User";
-import UpdateUser from "./pages/users/update-user/updateUser";
 import UpdateProduct from "./pages/products/update-product/UpdateProduct";
-import CreateCategory from "./pages/categorys/create-category/CreateCategory";
+import Register from "./pages/register/Register";
+import User from "./pages/users/User";
+import CreateUser from "./pages/users/create-user/createUser";
+import UpdateUser from "./pages/users/update-user/updateUser";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
         <Route path="/product/create" element={<CreateProduct />} />
         <Route path="/user/create" element={<CreateUser />} />
         <Route path="/user/update/:id" element={<UpdateUser />} />
-        <Route path="/product/update/:id" element={<UpdateProduct />} />
+        <Route path="/product/:id" element={<UpdateProduct />} />
+        <Route path="/order" element={<Orders />} />
       </Routes>
     </main>
   );

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCategory } from "../../../feature/category/sliceCategory";
 import { useParams } from "react-router-dom";
+import { updateCategory } from "../../../feature/category/sliceCategory";
 
 const UpdateCategory = () => {
   const dispatch = useDispatch();

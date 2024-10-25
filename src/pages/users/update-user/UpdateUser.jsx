@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../../feature/user/userSlice";
 import { useParams } from "react-router-dom";
+import { updateUser } from "../../../feature/user/userSlice";
 
 const UpdateUser = () => {
   const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const UpdateUser = () => {
   useEffect(() => {
     if (user) {
       setUserInfor({
-        username: user.username,
-        lastname: user.lastname,
+        username: user.firstName,
+        lastname: user.lastName,
         email: user.email,
         role: user.role,
       });
@@ -86,6 +86,19 @@ const UpdateUser = () => {
             value={userInfor.lastname}
             onChange={(e) =>
               setUserInfor({ ...userInfor, lastname: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 font-semibold text-gray-700">
+            Email
+          </label>
+          <input
+            className="w-full p-2 border border-gray-300 rounded"
+            type="text"
+            value={userInfor.email}
+            onChange={(e) =>
+              setUserInfor({ ...userInfor, email: e.target.value })
             }
           />
         </div>

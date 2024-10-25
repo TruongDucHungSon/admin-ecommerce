@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateproduct } from "../../../feature/product/productSlice";
+import { useParams } from "react-router-dom";
 import {
   fetchCategories,
   selectCategories,
 } from "../../../feature/category/sliceCategory";
-import { useParams } from "react-router-dom";
+import { updateproduct } from "../../../feature/product/productSlice";
 
 const UpdateProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) =>
-    state.product.products.products.find((prod) => prod._id === id)
+    state.product.products.find((prod) => prod._id === id)
   );
+  console.log(product);
+
   const categories = useSelector(selectCategories);
 
   useEffect(() => {
